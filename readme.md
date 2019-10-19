@@ -78,7 +78,7 @@ comment
 更新：`delete from comment where id=${id}`
 
 ## 后端项目搭建
-### 一、koa中间件
+### 一、koa和koa中间件
 1、用户登录态的处理：https://www.cnblogs.com/cangqinglang/p/10266952.html
 
 2、请求参数解析：koa-bodyparser
@@ -109,5 +109,9 @@ https://www.npmjs.com/package/supervisor
 https://github.com/liuxing/node-blog/blob/master/.eslintrc
 https://cn.eslint.org/docs/user-guide/configuring
 
+### 三、调试
+postman 
+
 ## 参考资料
 https://github.com/wclimb/Koa2-blog
+https://koa.bootcss.com/

@@ -1,0 +1,16 @@
+{
+  "name": "node-blog-exericese",
+  "version": "1.0.0",
+  "description": "blog",
+  "main": "index.js",
+  "scripts": {
+    "dev": "supervisor index"
+  },
+  "author": "liqiuhui",
+  "license": "MIT",
+  "dependencies": {
+    "koa": "^2.10.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0"
+  }
+}
