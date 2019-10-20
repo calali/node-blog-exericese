@@ -115,3 +115,6 @@ postman
 ## 参考资料
 https://github.com/wclimb/Koa2-blog
 https://koa.bootcss.com/
+https://www.zhihu.com/question/28557115/answer/47846156
+https://www.npmjs.com/package/body-parser
+https://www.npmjs.com/package/koa-body
