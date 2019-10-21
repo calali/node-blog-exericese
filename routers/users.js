@@ -9,5 +9,5 @@ router.post('/user', controller.addUser)
 
 router.put('/user', controller.editUser)
 
-router.delete('/user', controller.deletetUser)
+// router.delete('/user', controller.deletetUser)
 module.exports = router

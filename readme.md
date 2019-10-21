@@ -81,7 +81,7 @@ comment
 ### 一、koa和koa中间件
 1、用户登录态的处理：https://www.cnblogs.com/cangqinglang/p/10266952.html
 
-2、请求参数解析：koa-bodyparser
+2、请求参数解析：koa-bodyparser/koa-body
 
 3、路由：koa-router
 

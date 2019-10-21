@@ -1,23 +1,18 @@
 exports.login = async (ctx)=>{
-    const {user,password} = ctx.query
+    const {user,password} = ctx.body
     console.log(user,password)
-    ctx.body="ok"
+    ctx.session.key = user
 }
 
 exports.logout = async (ctx)=>{
-
+    ctx.session.key = null
 }
 
 exports.addUser = async (ctx)=>{
-    // const {user,password} = ctx.query
-    console.log(ctx.request.body)
-    ctx.body="ok"
+    const {name,password} = ctx.body
+    
 }
 
 exports.editUser = async (ctx)=>{
-
-}
-
-exports.deletetUser = async (ctx)=>{
 
 }
