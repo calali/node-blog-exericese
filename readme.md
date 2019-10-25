@@ -83,6 +83,8 @@ comment
 
 2、请求参数解析：koa-bodyparser/koa-body
 
+koa-body:ctx.request.body/ctx.query
+
 3、路由：koa-router
 
 ### 二、项目结构

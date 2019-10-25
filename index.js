@@ -4,8 +4,8 @@ const koaBody = require('koa-body');
 const config = require('./config/index')
 const session = require('koa-session');
 
-
 app.use(koaBody());
+
 app.use(require('./routers/users').routes());
 app.use(require('./routers/posts').routes());
 app.use(require('./routers/comment').routes());
@@ -19,7 +19,7 @@ const CONFIG = {
   /** Warning: If a session cookie is stolen, this cookie will never expire */
   maxAge: 24 * 60 * 60 * 1000,
   autoCommit: true, /** (boolean) automatically commit headers (default true) */
-  overwrite: true, /** (boolean) can overwrite or not (default true) */
+  overwrite: false, /** (boolean) can overwrite or not (default true) */
   httpOnly: true, /** (boolean) httpOnly or not (default true) */
   signed: true, /** (boolean) signed or not (default true) */
   rolling: false, /** (boolean) Force a session identifier cookie to be set on every response. The expiration is reset to the original maxAge, resetting the expiration countdown. (default is false) */
