@@ -22,7 +22,9 @@ const CONFIG = {
  
 app.use(session(CONFIG, app));
 
-app.use(koaBody());
+app.use(koaBody({
+  strict:false
+}));
 
 app.use(require('./routers/users').routes());
 app.use(require('./routers/posts').routes());

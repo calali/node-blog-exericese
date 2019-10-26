@@ -1,21 +1,13 @@
 const Router = require('koa-router');
 const router = new Router();
+const controller = require('../controller/posts')
 
+router.get('/posts', controller.getPosts)
 
-router.get('/posts', (ctx, next) => {
-    ctx.body = 'post';
-})
+router.post('/posts', controller.addPost)
 
-router.post('/posts', (ctx, next) => {
-    ctx.body = 'post';
-})
+router.delete('/posts', controller.deletePost)
 
-router.delete('/posts', (ctx, next) => {
-    ctx.body = 'post';
-})
-
-router.put('/posts', (ctx, next) => {
-    ctx.body = 'register';
-})
+router.put('/posts', controller.editPost)
 
 module.exports = router

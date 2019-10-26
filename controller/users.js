@@ -3,9 +3,6 @@ const uuidv1 = require('uuid/v1');
 const model = require('../lib/mysql')
 const utils = require('../middlewares/index')
 
-const md5 = crypto.createHash('md5');
-
-
 exports.login = async (ctx)=>{
     const {name,password} = ctx.request.body
     if(!name || !password){
@@ -20,15 +17,18 @@ exports.login = async (ctx)=>{
                 msg:'user has login'
             }
         }else{
-            await model.findUserByName([name]).then(async res=>{
+            await model.findUserByName([name]).then(res=>{
                 if(res && res.length){
-                    if(md5.update(password).digest('hex') === res[0]["pass"]){
-                        //设置cookie
+                    if(crypto.createHash('md5').update(password).digest('hex') === res[0]["pass"]){
                         ctx.session.uid=res[0]["uid"]
-                        console.log(ctx.session)
                         ctx.body={
                             code:200,
                             msg:'login success'
+                        }
+                    }else{
+                        ctx.body={
+                            code:500,
+                            msg:'user passowrd not correct'
                         }
                     }
                 }else{
@@ -40,7 +40,7 @@ exports.login = async (ctx)=>{
             }).catch((e)=>{
                 ctx.body ={
                     code:500,
-                    msg:JSON.stringify(e)
+                    msgd:JSON.stringify(e)
                 }
             })
         }
@@ -48,7 +48,6 @@ exports.login = async (ctx)=>{
 }
 
 exports.logout = async (ctx)=>{
-    
     if(!utils.isLogin(ctx)){
         ctx.body={
             code:500,
@@ -73,7 +72,7 @@ exports.logout = async (ctx)=>{
         }).catch(e=>{
             ctx.body ={
                 code:500,
-                msg:e.msg
+                msg:JSON.stringify(e)
             }
         })
         
@@ -81,7 +80,7 @@ exports.logout = async (ctx)=>{
 }
 
 exports.addUser = async (ctx)=>{
-    const {name,password,avator,moment} = ctx.request.body || {}
+    const {name,password,avator,moment} = ctx.request.body
     if(!name || !password || !avator || !moment){
         ctx.body={
             code:500,
@@ -102,8 +101,7 @@ exports.addUser = async (ctx)=>{
                         msg:'user has exits'
                     }
                 }else{
-                    await model.addUser([name,md5.update(password).digest('hex'),avator,moment,uuidv1()]).then(res=>{
-                        console.log(res)
+                    await model.addUser([name,crypto.createHash('md5').update(password).digest('hex'),avator,moment,uuidv1()]).then(res=>{
                         ctx.body={
                             code:200,
                             msg:'sign up ok'
@@ -145,7 +143,7 @@ exports.editUser = async (ctx)=>{
                     }).catch(e=>{
                         ctx.body ={
                             codea:500,
-                            msg:'ASDF'
+                            msg:JSON.stringify(e)
                         }
                     })
                 }else{
@@ -155,10 +153,9 @@ exports.editUser = async (ctx)=>{
                     }
                 }
             }).catch(e=>{
-                console.log(e)
                 ctx.body ={
                     codeaa:500,
-                    msg:'asdf'
+                    msg:JSON.stringify(e)
                 }
             })
         }
