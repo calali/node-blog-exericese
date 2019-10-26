@@ -1,4 +1,4 @@
-const isLogin =  (ctx)=>{
+exports.isLogin =  (ctx)=>{
     if(ctx.session && ctx.session.uid){
         return true
     }
