@@ -11,6 +11,7 @@ SMIPLE BLOG
 2、后端项目搭建
 
 ## 数据库表的设计与查询
+
 ### 一、用户的登录注册
 #### 1、用户表设计
 users
@@ -79,11 +80,9 @@ comment
 
 ## 后端项目搭建
 ### 一、koa和koa中间件
-1、用户登录态的处理：https://www.cnblogs.com/cangqinglang/p/10266952.html
+1、请求参数解析：koa-body:ctx.request.body/ctx.query
 
-2、请求参数解析：koa-bodyparser/koa-body
-
-koa-body:ctx.request.body/ctx.query
+2、登录态:koa-session
 
 3、路由：koa-router
 
@@ -120,3 +119,9 @@ https://koa.bootcss.com/
 https://www.zhihu.com/question/28557115/answer/47846156
 https://www.npmjs.com/package/body-parser
 https://www.npmjs.com/package/koa-body
+
+
+## to-do
+测试代码
+sql语句写法
+HTTP请求
